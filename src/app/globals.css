@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+  --color-brand-navy: #003b6f;
+  --color-brand-navy-hover: #002c54;
+  --color-brand-navy-light: #e8f1f8;
+  --color-brand-steel: #165a96;
+  --color-brand-yellow: #ffc700;
+  --color-brand-yellow-hover: #e5b300;
+  --color-workshop-black: #111111;
+  --color-workshop-card: #181818;
+  --color-workshop-muted: #1f1f1f;
+  --color-workshop-border: #282828;
+  --color-studio-white: #f8f7f4;
+  --color-studio-card: #ffffff;
+  --color-studio-muted: #efece6;
+  --color-studio-border: #e7e5e0;
+  --color-concrete: #8e8e8a;
+  --color-signal-orange: #ff5a36;
+}
+
+:root {
+  --background: #f8f7f4; /* studio-white */
+  --foreground: #111111; /* workshop-black */
+  --card: #ffffff;
+  --card-foreground: #111111;
+  --primary: #ffc700; /* brand-yellow */
+  --primary-hover: #e5b300;
+  --primary-foreground: #111111;
+  --navy: #003b6f; /* brand-navy */
+  --navy-light: #e8f1f8;
+  --steel: #165a96;
+  --concrete: #8e8e8a;
+  --border: #e7e5e0; /* studio-border */
+  --muted: #efece6; /* studio-muted */
+  --muted-foreground: #71716e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #111111; /* workshop-black */
+    --foreground: #f8f7f4; /* studio-white */
+    --card: #181818; /* workshop-card */
+    --card-foreground: #f8f7f4;
+    --primary: #ffc700; /* brand-yellow */
+    --primary-hover: #e5b300;
+    --primary-foreground: #111111;
+    --navy: #003b6f;
+    --navy-light: #162638;
+    --steel: #165a96;
+    --concrete: #8e8e8a;
+    --border: #282828; /* workshop-border */
+    --muted: #1f1f1f; /* workshop-muted */
+    --muted-foreground: #a1a1aa;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+::selection {
+  background-color: #ffc700;
+  color: #111111;
+}
+
+/* Workshop Blueprint Grid Background */
+.bg-workshop-grid {
+  background-image: linear-gradient(90deg, rgba(142, 142, 138, 0.12) 1px, transparent 0),
+                    linear-gradient(180deg, rgba(142, 142, 138, 0.12) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+.bg-dark-grid {
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 0),
+                    linear-gradient(180deg, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #c5c2ba;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8e8e8a;
+}
+
+/* Print specific styles for reports */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-page-break {
+    page-break-after: always;
+  }
+}
+
+/* Hide Next.js Dev Indicator Icon */
+nextjs-portal,
+[data-nextjs-dev-indicator],
+[data-nextjs-toast],
+div[data-nextjs-dev-tools-button] {
+  display: none !important;
+}
